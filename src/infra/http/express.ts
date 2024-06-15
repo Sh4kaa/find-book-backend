@@ -1,13 +1,13 @@
 import express, { Application } from "express";
 import cors from "cors";
 
-export class App {
+export class Express {
   app: Application;
   constructor() {
     this.app = express();
   }
 
-  initMiddlewares() {
+  private initMiddlewares() {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cors);
