@@ -1,11 +1,17 @@
 import express, { Application } from "express";
 import cors from "cors";
+import { errorMiddleware } from "../middlewares/error.middleware";
 
 export class Express {
   app: Application;
   constructor() {
     this.app = express();
     this.initMiddlewares();
+    this.errorMiddleware();
+  }
+
+  errorMiddleware() {
+    this.app.use(errorMiddleware);
   }
 
   private initMiddlewares() {
